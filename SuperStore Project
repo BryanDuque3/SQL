@@ -1,3 +1,5 @@
+#This project utilizes the following Superstore data: 
+
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
     item_name TEXT,
@@ -24,3 +26,26 @@ VALUES
     (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+
+#For this project, I used SQL to query the Superstore database to get information about items sold at the store and their prices. 
+SELECT *
+FROM superstore
+ORDER BY price DESC;
+
+SELECT AVG(price)
+FROM superstore;
+
+SELECT 
+    MIN(price) AS Min_Price,
+    MAX(price) AS Max_Price,
+    AVG(price) AS Avg_Price,
+    COUNT(*) AS Item_Count
+FROM 
+    superstore
+WHERE 
+    category = 'Kitchen Supplies';
+
+SELECT
+SUM(price * stock_quantity) AS Total_Stock_Value
+FROM superstore
+WHERE category = 'Electronics';
